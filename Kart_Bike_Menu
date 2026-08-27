@@ -1,0 +1,100 @@
+from PySide6.QtWidgets import (
+    QApplication,
+    QWidget,
+    QVBoxLayout,
+    QPushButton,
+    QLabel
+)
+
+import sys
+
+#==============================================
+# KART - MENU
+#==============================================
+
+
+class KartMenu(QWidget):
+
+    def __init__(self, character):
+        super().__init__()
+
+        self.selected_character = character
+
+        self.setWindowTitle("CHOOSE YOUR KART!")
+        self.resize(1320, 900)
+
+        layout = QVBoxLayout()
+
+        title = QLabel("KART MENU")
+
+        self.firstkart_button = QPushButton("Demon Kart")
+        self.secondkart_button = QPushButton("Second Kart")
+        self.thirdkart_button = QPushButton("Third Kart")
+        self.fourthkart_button = QPushButton("Fourth Kart")
+
+        layout.addWidget(title)
+        layout.addWidget(self.firstkart_button)
+        layout.addWidget(self.secondkart_button)
+        layout.addWidget(self.thirdkart_button)
+        layout.addWidget(self.fourthkart_button)
+
+        self.setLayout(layout)
+
+        self.firstkart_button.clicked.connect(self.kart_selected)
+
+    def kart_selected(self):
+        self.selected_kart = "Demon Kart"
+
+        print("Character:", self.selected_character)
+        print("Kart:", self.selected_kart)
+
+#==============================================
+# BIKE MENU
+#============================================== 
+
+class BikeMenu(QWidget):
+
+    def __init__(self, character):
+        super().__init__()
+
+        self.selected_character = character
+
+        self.windowTitle("CHOOSE YOUR BIKE!")
+        self.resize(1320,900)
+
+        layout = QVBoxLayout
+
+        title = QLabel("BIKE MENU")
+
+
+        self.firstbike_button = QPushButton("First Bike")
+        self.secondbike_button = QPushButton("Second Bike")
+        self.thirdbike_button = QPushButton("Third Bike")
+        self.fourthbike_button = QPushButton("Fourth Bike")
+
+        layout.addWidget(title)
+        layout.addWidget(self.firstbiket_button)
+        layout.addWidget(self.secondbike_button)
+        layout.addWidget(self.thridbike_button)
+        layout.addWidget(self.fourthbike_button)
+
+
+    def bike_selected(self):
+        self.selected_bike = "First Bike"
+
+        print("Charcater:", self.selected_character)
+        print("Bike", self.selected_bike)
+
+#==============================================
+# MAIN PROGRAMME 
+#============================================== 
+
+
+if __name__ == "__main__":
+
+    app = QApplication(sys.argv)
+
+    window = KartMenu("Jack Drummond")
+    window.show()
+
+    sys.exit(app.exec())
