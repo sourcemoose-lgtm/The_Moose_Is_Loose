@@ -1,0 +1,40 @@
+from PySide6.QtWidgets import (
+    QApplication,
+    QWidget,
+    QVBoxLayout,
+    QPushButton,
+    QLabel,
+    QStackedWidget
+)
+from PySide6.QtCore import QPropertyAnimation
+from PySide6.QtCore import Qt
+import sys
+
+
+class OXYMOXIEMOOSE_LTD(QWidget):
+
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle("OXYMOXIEMOOSE LTD - CREDITS")
+        self.resize(1320,900)
+
+        layout = QVBoxLayout()
+
+        title = QLabel ("OXYMOXIEMOOSE LTD DEVELOPED GAME")
+        layout.addWidget(title)
+
+        title = QLabel ("A SOURCE MOOSE LTD PUBLISHED GAME")
+        layout.addWidget(title)
+
+        self.setLayout(layout)
+
+
+if __name__ == "__main__":
+
+    app = QApplication(sys.argv)
+
+    window = OXYMOXIEMOOSE_LTD()
+    window.show()
+
+    sys.exit(app.exec())
