@@ -1,0 +1,102 @@
+from typing import Self
+
+from PySide6.QtWidgets import (
+    QApplication,
+    QWidget,
+    QVBoxLayout,
+    QPushButton,
+    QLabel,
+    QStackedWidget
+)
+from PySide6.QtCore import Qt
+import sys
+
+
+
+#===================================================
+# Goals - Menu 
+#===================================================
+
+class GoalsMenu(QWidget):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle("CHOOSE THE GOAL!") 
+        self.resize(1320,900)
+
+        # create different screen 
+        self.create_goal_one()
+        print("Complete 2 tracks")
+        self.create_goal_two()
+        print("Use 4 Crystal Power ups")
+        self.create_goal_three()
+        print("Use Golden Time Crystal - Reverse racers near you")
+        self.create_goal_four()
+        print("Use Ultra Crystal!")
+
+    def create_goal_one(self):
+        layout = QVBoxLayout()
+        label = QLabel("Goal: Complete 2 tracks")
+        layout.addWidget(label)
+        self.setLayout(layout)
+
+    def create_goal_two(self):
+        layout = QVBoxLayout()
+        label = QLabel("Goal: Use 4 Crystal Power ups")
+        layout.addWidget(label)
+        self.setLayout(layout)
+
+    def create_goal_three(self):
+        layout = QVBoxLayout()
+        label = QLabel("Goal: Use Golden Time Crystal - Reverse racers near you")
+        layout.addWidget(label)
+        self.setLayout(layout)
+
+    def create_goal_four(self):
+        layout = QVBoxLayout()
+        label = QLabel("Goal: Use Ultra Crystal!")
+        layout.addWidget(label)
+        self.setLayout(layout)
+
+
+#===================================================
+# Crystals - Menu 
+#===================================================
+class CrystalsMenu(QWidget):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle("CHOOSE CRYSTAL TO UNLOCK - ...") 
+        self.resize(1320, 900)
+
+        # Create Crystal Menu
+        self.create_purple_crystal()
+        print("15 Purple Crystals Needed") 
+        self.create_red_crystal()
+        print("8 Red Crystals Needed")
+        self.create_green_crystal()
+        print("6 Green Crystals Needed")
+        self.create_gold_crystal()
+        print("4 gold Crystals Needed")
+
+
+        # Create new locked menu
+        self.create_ultra()
+        print("2 Ultra Cyrstals Needed")
+
+
+    def create_ultra(self):
+        layout = QVBoxLayout()
+        label = QLabel("Ultra Crystal - Unlock special ability")
+        layout.addWidget(label)
+        self.setLayout(layout)
+
+
+if __name__ == "__main__":
+
+    app = QApplication(sys.argv)
+
+    window = GoalsMenu()
+    window.show()
+
+    sys.exit(app.exec())
